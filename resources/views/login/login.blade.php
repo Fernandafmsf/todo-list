@@ -3,6 +3,22 @@
 
 @section('title', 'Login')
 
+
+@if($errors->any())
+  @foreach($errors->all() as $error)
+    <div class="alert alert-danger container-sm mt-2" role="alert">
+     {{$error}}
+    </div>
+
+  @endforeach
+  
+@elseif($mensagem= Session::get('erro'))
+  <div class="alert alert-danger container-sm mt-2" role="alert">
+     {{$mensagem}}
+    </div>
+
+@endif
+
 @section('conteudo')
 
 <section class="vh-100">
@@ -52,5 +68,7 @@
     </div>
   </div>
 </section>
+
+
 
 @endsection
