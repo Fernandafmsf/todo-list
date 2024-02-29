@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('site.home');
-});
+})->name('site.home');
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::view('/login', 'login.login')->name('login');
+Route::post('/auth',[LoginController::class, 'auth'])->name('login.auth');
+
+
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/user', [UserController::class, 'store'])->name('user.store');

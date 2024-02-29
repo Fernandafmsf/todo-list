@@ -3,6 +3,7 @@
 
 @section('title', 'Login')
 
+
 @section('conteudo')
 
 <section class="vh-100">
@@ -13,9 +14,15 @@
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form action="{{route('login.auth')}}" method="POST">
-
+        
+        <form action="{{route('user.store')}}" method="POST">
           @csrf
+       
+          <div class="form-outline mb-4">
+            <label class="form-label" for="name">Nome</label>
+            <input type="text" id="name" name="name" class="form-control form-control-lg" />
+          </div>
+
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="email">Email</label>
@@ -28,24 +35,8 @@
             <input type="password" id="password" name="password" class="form-control form-control-lg" />
           </div>
 
-          <div class="d-flex justify-content-around align-items-center mb-4">
-            <!-- Checkbox -->
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="remember" checked />
-              <label class="form-check-label" for="remember"> Lembrar-me </label>
-            </div>
-            <a href="#!">Esqueceu a senha?</a>
-          </div>
-
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block ">Entrar</button>
-
-          <div class="d-flex align-items-center justify-content-center mt-4">
-            <p class="mb-2 me-5">Não tem uma conta?</p>
-            <button href="" type="button" class=" btn btn-outline-danger">
-              <a style="text-decoration: none; color:black" href="{{route('user.create')}}">Criar conta</a>
-            </button>
-          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block ">Criar conta</button>
 
         </form>
       </div>
