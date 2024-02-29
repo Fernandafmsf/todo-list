@@ -10,35 +10,44 @@
 
 </head>
 <body>
-  
+<nav class="navbar navbar-light bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{route('site.home')}}">To-do List</a>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand lg" href="#">To-do List</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-       
-        <li class="nav-item active">
-          <a class="nav-link" href="{{route('login')}}">Login</a>
-        </li>
-
-      </ul>
+    <div class="d-flex input-group w-auto">
+      @auth
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hello, {{auth()->user()->name}} !
+        </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Dashboard</a>
+        <a class="dropdown-item" href="#">Log Out</a>
+      </div>
     </div>
-  </nav>
+      @else
+      
+      <a href="{{route('login')}}" class="btn btn-link px-3 me-2">Login</a>
+      <a href="{{route('user.create')}}" class="btn btn-primary me-3">Sign up for free</a>
 
+      @endauth
+    </div>
 
+  </div>
+</nav>
   
   @yield('conteudo')
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
+  <script>
+    import { Dropdown, Ripple, initMDB } from "mdb-ui-kit";
+
+    initMDB({ Dropdown, Ripple });
+  </script>
+  
 
 </body>
 </html>

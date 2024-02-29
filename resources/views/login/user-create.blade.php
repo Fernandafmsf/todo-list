@@ -9,12 +9,11 @@
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
-      
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        
+        <h1>Cadastrar-se</h1>
         <form action="{{route('user.store')}}" method="POST">
+          
           @csrf
-       
           <div class="form-outline mb-4">
             <label class="form-label" for="name">Nome</label>
             <input type="text" id="name" name="name" class="form-control form-control-lg" />
