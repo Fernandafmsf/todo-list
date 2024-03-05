@@ -4,8 +4,8 @@
 
 @section('conteudo')
 
-<div class="container-md">
-  <h1>A fazer </h1>
+{{-- <div class="container-md"> --}}
+  {{-- <h1>A fazer </h1>
 
   <div class=" container-md list-group-item ">
     <div class=" d-flex w-100 justify-content-between">
@@ -20,7 +20,30 @@
     <p class="mb-1">Descriçao da tarefa</p>
   </div>
 
-</div>
+</div> --}}
+
+<section class="container-md">
+			<div class="container">
+			
+					<div class=" text-center">
+						<h2 class="heading-section mb-5">To do</h2>
+				  </div>
+          
+				<div class="row justify-content-center">
+					<div class="col-md-4">
+						<ul class="ks-cboxtags">
+              @foreach($tasks as $task)
+					      <li>
+                  <input type="checkbox" id="checkboxOne" value="Order One">
+					    	  <label for="checkboxOne">{{$task->tarefa}}</label>
+                </li>
+              @endforeach
+              
+					  </ul>
+					</div>
+				</div>
+			</div>
+		</section>
 
   
     

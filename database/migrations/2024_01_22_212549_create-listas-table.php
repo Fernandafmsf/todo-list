@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lista', function(Blueprint $table){
+        Schema::create('listas', function(Blueprint $table){
             $table->id();
-            $table->string('tarefa', 255);
-            $table->text('descricao');
-            $table->string('slug'); 
+            $table->string('tarefa', 255);         
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropI('listas');
     }
 };

@@ -11,7 +11,7 @@ class Lista extends Model
 
     protected $fillable = [
         'tarefa',
-        'descricao',
+        'id_user'
     ];
 
 
