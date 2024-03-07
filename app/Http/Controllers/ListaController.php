@@ -11,7 +11,8 @@ class ListaController extends Controller
     public function index()
     {
         $tasks = Lista::all();
+        $count=0;
         
-        return view('site.home', compact('tasks'));
+        return view('site.home', compact('tasks', 'count'));
     }
 }

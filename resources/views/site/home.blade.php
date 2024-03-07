@@ -22,25 +22,28 @@
 
 </div> --}}
 
-<section class="container-md">
+<section class="container-lg">
 			<div class="container">
 			
-					<div class=" text-center">
-						<h2 class="heading-section mb-5">To do</h2>
-				  </div>
+				<div class=" text-center">
+					<h2 class="heading-section mb-5">To do</h2>
+				</div>
           
-				<div class="row justify-content-center">
-					<div class="col-md-4">
+				<div class="container-md">
+					
 						<ul class="ks-cboxtags">
+        
               @foreach($tasks as $task)
 					      <li>
-                  <input type="checkbox" id="checkboxOne" value="Order One">
-					    	  <label for="checkboxOne">{{$task->tarefa}}</label>
+                  <input type="checkbox" id="{{$count}}" value="Order {{$count}}">
+					    	  <label for="{{$count}}">{{$task->tarefa}}</label>
+                  
                 </li>
+                @php($count++)
               @endforeach
               
 					  </ul>
-					</div>
+				
 				</div>
 			</div>
 		</section>
