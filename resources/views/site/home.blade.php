@@ -23,26 +23,49 @@
 </div> --}}
 
 <section class="container-lg">
-			<div class="container">
+		<div class="container">
 			
-				<div class=" text-center">
-					<h2 class="heading-section mb-5">To do</h2>
-				</div>
+			<div class=" text-center">
+				<h2 class="heading-section mb-5">To do</h2>
+			</div>
           
-				<div class="container-md">
+			<div class="container-md">
+
+        <form  class="container-md form-row" action="{{route('task-store')}}" method="POST" >
+
+          @csrf
+
+          @auth
+          
+            <input type="hidden" name="id_user" value="{{auth()->user()->id}}">
+
+          @endauth
+          <div class="col-md-10 ">
+            <div data-mdb-input-init class="form-outline ml-1">
+              <input type="text" id="description" name="description" class="form-control " placeholder="Add a task..." />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-outline">
+              <button type="submit" class=" form-control btn btn-primary ml-1" >Add</button>
+            </div>
+          </div>  
+            
+        </form>
 					
 						<ul class="ks-cboxtags">
         
               @foreach($tasks as $task)
 					      <li>
                   <input type="checkbox" id="{{$count}}" value="Order {{$count}}">
-					    	  <label for="{{$count}}">{{$task->tarefa}}</label>
-                  
+					    	  <label for="{{$count}}">{{$task->description}}</label>
                 </li>
                 @php($count++)
               @endforeach
               
 					  </ul>
+
+           
 				
 				</div>
 			</div>

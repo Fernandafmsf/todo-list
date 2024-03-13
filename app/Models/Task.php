@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lista extends Model
+class Task extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'tarefa',
+        'description',
         'id_user'
     ];
-
 
 }
