@@ -26,6 +26,7 @@ Route::post('/', [TaskController::class, 'store'])->name('task-store');
 
 Route::view('/login', 'login.login')->name('login');
 Route::post('/auth',[LoginController::class, 'auth'])->name('login.auth');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
